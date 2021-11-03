@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@100;300;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
+
+* {
+  margin: 0;
+}
+header {
+  text-align: center;
+  border-bottom: 1px groove #dbdbdb;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-family: 'Fruktur', cursive;
+  font-weight: 300;
+  color: red;
+}
+
+.maintitle {
+  font-family: 'Fruktur', cursive;
+  font-size: 14px;
+}
+
+.firstfoods {
+  display: flex;
+  overflow-x: scroll;
+  width: 300px;
+  align-items: center;
+}
+
+.firstfoods img {
+  width: 100px;
+  height: 100px;
+}
+
+.secondfoods {
+  margin-top: 30px;
+  display: flex;
+  overflow-x: scroll;
+  width: 300px;
+  align-items: center;
+}
+
+.secondfoods img {
+  width: 100px;
+  height: 100px;
+}
+
+.foodname {
+  display: block;
+  font-family: 'Open sans';
+  color: rgb(42, 42, 42);
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(100, 100, 100);
+  padding-top: 2px;
+  font-size: 7px;
+  font-weight: 200;
+}
+
+.box1 {
+  height: 160px;
+  background: #ffffff;
+  border: 1px groove #dbdbdb;
+  background-color: rgb(246, 242, 233);
+  box-sizing: border-box;
+  padding-bottom: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.box2,
+.box3 {
+  height: 160px;
+  background: #ffffff;
+  border: 1px groove #dbdbdb;
+  background-color: rgb(246, 242, 233);
+  box-sizing: border-box;
+  padding-bottom: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-left: 10px;
+  margin-top: 29px;
+}
