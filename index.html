@@ -15,29 +15,32 @@
     <main>
       <div class="firstfoods">
         <div>
-          <p class="maintitle">Ofertas</p>
-          <div class="box1">
-            <img src="./images/pancake.jpeg" alt="pancake" />
+          <p class="maintitle">Prato principal</p>
+          <div class="box1"  onclick="getfood(1, 19.90, 1)">
+            <img src="./images/salada.jfif" alt="pancake" />
             <div class="text-below-image">
               <span class="foodname">Panqueca</span>
               <span class="subtitle">Acompanha mel</span>
+              <span class="price">19,90</span>
             </div>
           </div>
         </div>
 
-        <div class="box2">
-          <img src="./images/pancake.jpeg" alt="pancake" />
+        <div class="box2"  onclick="getfood(2, 19.90, 1)">
+          <img src="./images/salada-completa.jfif" alt="pancake" />
           <div class="text-below-image">
             <span class="foodname">Panqueca</span>
             <span class="subtitle">Acompanha mel</span>
+            <span class="price">19,90</span>
           </div>
         </div>
 
-        <div class="box3">
-          <img src="./images/pancake.jpeg" alt="pancake" />
+        <div class="box3"  onclick="getfood(3, 19.90, 1)">
+          <img src="./images/macarronada.jfif" alt="pancake" />
           <div class="text-below-image">
             <span class="foodname">Panqueca</span>
             <span class="subtitle">Acompanha mel</span>
+            <span class="price">19,90</span>
           </div>
         </div>
       </div>
@@ -45,60 +48,154 @@
       <div class="secondfoods">
         <div>
           <p class="maintitle">Sobremesa</p>
-          <div class="box1">
+          <div class="box4"  onclick="getfood(4, 5.90, 2)">
             <img src="./images/brigadeiiro.jpeg" alt="brigadeiro" />
             <div class="text-below-image">
               <span class="foodname">Brigadeiro</span>
               <span class="subtitle">Acompanha biscoitos</span>
+              <span class="price">5,90</span>
             </div>
           </div>
         </div>
 
-        <div class="box2">
+        <div class="box5"  onclick="getfood(5, 10.90, 2)">
           <img src="./images/torta-de-morango.jpeg" alt="pancake" />
           <div class="text-below-image">
             <span class="foodname">Torta</span>
-            <span class="subtitle">Acompanhada de morango</span>
+            <span class="subtitle">Acompanha morango</span>
+            <span class="price">10,90</span>
           </div>
         </div>
 
-        <div class="box3">
+        <div class="box6"  onclick="getfood(6, 12.9, 2)">
           <img src="./images/pancake.jpeg" alt="pancake" />
           <div class="text-below-image">
             <span class="foodname">Panqueca</span>
             <span class="subtitle">Acompanha mel</span>
+            <span class="price">12,90</span>
           </div>
         </div>
       </div>
 
-      <div class="secondfoods">
+      <div class="thirdfoods">
         <div>
           <p class="maintitle">Bebidas</p>
-          <div class="box1">
+          <div class="box7"  onclick="getfood(7, 10.9, 3)">
             <img src="./images/suco-de-laranja.jpeg" alt="pancake" />
             <div class="text-below-image">
               <span class="foodname">Suco</span>
               <span class="subtitle">Sabor laranja</span>
+              <span class="price">10,90</span>
             </div>
           </div>
         </div>
 
-        <div class="box2">
+        <div class="box8"  onclick="getfood(8, 10.90, 3)">
           <img src="./images/suco-verde.jpeg" alt="pancake" />
           <div class="text-below-image">
             <span class="foodname">Suco</span>
             <span class="subtitle">Sabor verde</span>
+            <span class="price">10,90</span>
           </div>
         </div>
 
-        <div class="box3">
+        <div class="box9"  onclick="getfood(9, 15.90, 3)">
           <img src="./images/milkshake.jpeg" alt="pancake" />
           <div class="text-below-image">
             <span class="foodname">Milkshake</span>
             <span class="subtitle">Sabor óreo</span>
+            <span class="price">15,90</span>
           </div>
         </div>
       </div>
+      <div class="final">
+        <div class="value">
+          <p class="valorTotal">Valor Total: R$0.00</p>
+        </div>
+        <div class="botao">
+          <button onclick="fechaPedido()">Finalizar Pedido</button>
+        </div>
+      </div>
+
     </main>
+
+    <script>
+      let pedidoprincipal = false;
+      let pedidosobremesa = false;
+      let pedidobebida = false;
+
+      let custo_principal = 0;
+      let custo_sobremesa = 0;
+      let custo_bebida = 0;
+
+      let valortotal = 0.00;
+
+
+
+      function getfood(position, price, tipodopedido) {
+        if(pedidobebida == true && pedidoprincipal==true && pedidosobremesa == true){
+          calculaTotal();
+        }
+
+        const item = document.querySelector(".box" + position);
+        item.classList.toggle("bordar");
+
+        verificatipo(tipodopedido, price);
+      }
+
+      function verificatipo(tipo, price){
+        if(tipo == 1 && !pedidoprincipal){
+            pedidoprincipal = true;
+            custo_principal = price;
+        }
+
+        else if(tipo==1 && pedidoprincipal){
+          pedidoprincipal = true;
+          custo_principal = price;
+          calculaTotal();
+        }
+
+        else if(tipo == 2 && !pedidosobremesa){
+          pedidosobremesa = true;
+          custo_sobremesa = price;
+        }
+
+        else if(tipo == 2 && pedidosobremesa){
+          pedidosobremesa = true;
+          custo_sobremesa = price;
+          calculaTotal();
+        }
+
+        else if(tipo == 3 && !pedidobebida){
+          pedidobebida=true;
+          custo_bebida = price;
+        }
+        else if(tipo == 3 && pedidobebida){
+          pedidobebida=true;
+          custo_bebida = price;
+          calculaTotal();
+        }
+        
+      }
+
+      function calculaTotal(){
+        valortotal = custo_principal + custo_bebida + custo_sobremesa;
+        const total = document.querySelector('.valorTotal');
+        total.innerHTML = `Valor Total: R$${valortotal.toFixed(2)}`
+      }
+
+    function fechaPedido(){
+      if(pedidobebida == true && pedidoprincipal == true && pedidosobremesa == true){
+        var msg = "Boa noite. Eu gostaria de fazer o seguinte pedido:\n\
+                - Prato: Macarronada\n\
+                - Bebida: Suco\n\
+                - Sobremesa: Brigadeiro\n\
+                Total: R$ {55.50}"
+        let target = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`
+        
+        window.open(target);
+      }
+    }
+    </script>
   </body>
 </html>
